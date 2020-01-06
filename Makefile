@@ -9,6 +9,7 @@ SRC		=	./src/error_handling/usage.c					\
 			./src/error_handling/check_wrong_args.c			\
 			./src/game_treatment/matchstick.c				\
 			./src/game_treatment/print_map.c				\
+			./src/game_treatment/free_map.c					\
 			./src/game_treatment/create_map/allocate_map.c	\
 			./src/game_treatment/create_map/fill_map.c		\
 

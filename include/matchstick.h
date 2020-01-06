@@ -25,5 +25,6 @@ unsigned int allocate_map(char ***, const unsigned int, const unsigned int);
 void fill_map(game_info_t *);
 
 void print_map(char **, const unsigned int);
+void free_map(char ***, const unsigned int);
 
 #endif /* MATCHSTICK_H_ */

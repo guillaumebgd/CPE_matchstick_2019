@@ -12,11 +12,11 @@ unsigned int allocate_map(char ***map, const unsigned int lines,
 {
     unsigned int count = 0;
 
-    (*map) = malloc(sizeof(char *) * lines + 2);
+    (*map) = malloc(sizeof(char *) * (lines + 2));
     if ((*map) == NULL)
         return (84);
     while (count < lines + 2) {
-        (*map)[count] = malloc(sizeof(char) * width + 2);
+        (*map)[count] = malloc(sizeof(char) * (width + 2));
         if ((*map)[count] == NULL)
             return (84);
         (*map)[count][width] = '\n';
