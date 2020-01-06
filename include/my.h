@@ -10,5 +10,7 @@
 #define MY_H_
 
 int my_getnbr(char const *);
+int my_strlen(char const *);
+int my_putstr(char const *);
 
 #endif /* MY_H_ */

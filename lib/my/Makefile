@@ -5,7 +5,9 @@
 ## makefile for lib
 ##
 
-SRC	=	./my_getnbr.c
+SRC	=	./my_getnbr.c	\
+		./my_strlen.c	\
+		./my_putstr.c
 
 CFLAGS	=	-Wall -Wextra -I./../../include/
 

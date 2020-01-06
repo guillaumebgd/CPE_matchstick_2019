@@ -5,7 +5,12 @@
 ## compiles c files into a lib
 ##
 
-SRC		=	./src/error_handling/usage.c	\
+SRC		=	./src/error_handling/usage.c					\
+			./src/error_handling/check_wrong_args.c			\
+			./src/game_treatment/matchstick.c				\
+			./src/game_treatment/print_map.c				\
+			./src/game_treatment/create_map/allocate_map.c	\
+			./src/game_treatment/create_map/fill_map.c		\
 
 MAIN	=	./src/main.c
 
@@ -35,6 +40,12 @@ coverage:
 	gcovr --exclude tests/
 	gcovr --exclude tests/ --branches
 
+valgrind:
+	$(MAKE) -C ./lib/my
+	$(CC) -o val $(MAIN) $(SRC) $(LIB) $(CFLAGS) -g
+	valgrind ./val 10 1
+	$(RM) val
+
 debug:
 	$(MAKE) -C ./lib/my
 	$(CC) -o debug $(MAIN) $(SRC) $(LIB) $(CFLAGS) -g
@@ -43,8 +54,11 @@ debug:
 
 clean:
 	$(RM) $(OBJ)
-	$(RM) *.gc*
+	$(RM) *.gcna *.gcno
+	$(RM) vgcore.*
 	$(RM) unit_tests
+	$(RM) val
+	$(RM) debug
 
 fclean:	clean
 	$(RM) $(NAME)
@@ -53,4 +67,4 @@ fclean:	clean
 
 re:	fclean all
 
-.PHONY: all tests_run coverage debug clean fclean re
+.PHONY: all tests_run coverage valgrind debug clean fclean re
