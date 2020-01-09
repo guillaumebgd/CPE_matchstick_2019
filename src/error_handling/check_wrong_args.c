@@ -7,7 +7,9 @@
 
 #include "my.h"
 
-static unsigned int check_wrong_size(const int nb, const int smallest, const int max)
+static unsigned int check_wrong_size(const int nb,
+                                const int smallest,
+                                const int max)
 {
     if (nb <= smallest || nb >= max)
         return (1);
