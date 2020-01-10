@@ -44,5 +44,5 @@ unsigned int matchstick(const unsigned int lines,
     init_game(&game, lines, max_remove);
     print_map(game.map, game.lines + 2);
     free_map(&game.map, game.lines + 2);
-    return (1);
+    return (0);
 }
