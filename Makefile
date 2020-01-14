@@ -2,70 +2,73 @@
 ## EPITECH PROJECT, 2019
 ## Makefile matchstick
 ## File description:
-## compiles c files into a lib
+## compiles c files with libs into matchstick game
 ##
 
-SRC		=	./src/error_handling/usage.c					\
-			./src/error_handling/check_wrong_args.c			\
-			./src/game_treatment/matchstick.c				\
-			./src/game_treatment/print_map.c				\
-			./src/game_treatment/free_map.c					\
-			./src/game_treatment/create_map/allocate_map.c	\
-			./src/game_treatment/create_map/fill_map.c		\
+SRC	=	src/error_handlers/usage.c							\
+		src/error_handlers/check_wrong_args.c				\
+		src/init_end_game.c									\
+		src/matchstick_game.c								\
+		src/get_width.c										\
+		src/lines_linked_list/create_map.c					\
+		src/lines_linked_list/fill_basics_line.c			\
+		src/lines_linked_list/free_lines.c					\
+		src/game_itterations/get_info_lines.c				\
+		src/game_itterations/get_info_matches.c				\
+		src/game_itterations/print_map.c					\
+		src/game_itterations/remove_matches_from_line.c		\
+		src/different_turns/player/player_turn.c			\
+		src/different_turns/ai/ai_turn.c					\
+		src/different_turns/ai/get_every_possible_lines.c
 
-MAIN	=	./src/main.c
+MAIN	=	main.c
 
-CFLAGS	=	-Wall -Wextra -I./include/
+VPATH	=	/usr/local/lib/
 
 NAME	=	matchstick
 
-LIB		=	-L./lib/my/ -lmy
+CFLAGS	=	-Wall -Wextra
 
-CRIT	=	--coverage -lcriterion
+CPPFLAGS	=	-I./include/
+
+LDFLAGS	=	-L./lib/my
+
+LDLIBS	=	-lmy
+
+LDLIBTEST	=	-lmy -lcriterion
 
 all:	$(NAME)
 
 $(NAME):
 	$(MAKE) -C ./lib/my
-	$(CC) -o $(NAME) $(MAIN) $(SRC) $(LIB) $(CFLAGS)
+	$(CC) -o $@ $(MAIN) $(SRC) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
 
-tests_run:
+debug:
 	$(MAKE) -C ./lib/my
-	$(RM) *.gcda *.gcno
-	$(CC) -o unit_tests $(SRC) tests/*.c $(LIB) $(CRIT) $(CFLAGS)
-	./unit_tests
-	$(RM) unit_tests
-	$(RM) test_*
+	$(CC) -g -o $@ $(SRC) $(MAIN) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
+
+tests_run: $(LDLIBTEST)
+	$(MAKE) -C lib/my
+	$(CC) -o $@ $(SRC) tests/*.c $(CPPFLAGS) $(LDFLAGS) $(LDLIBTEST) --coverage
+	./$@
+	$(RM) $@
 
 coverage:
 	gcovr --exclude tests/
 	gcovr --exclude tests/ --branches
 
-valgrind:
-	$(MAKE) -C ./lib/my
-	$(CC) -o val $(MAIN) $(SRC) $(LIB) $(CFLAGS) -g
-	valgrind ./val 10 1
-	$(RM) val
-
-debug:
-	$(MAKE) -C ./lib/my
-	$(CC) -o debug $(MAIN) $(SRC) $(LIB) $(CFLAGS) -g
-	gdb ./debug
-	$(RM) debug
-
 clean:
-	$(RM) $(OBJ)
-	$(RM) *.gcna *.gcno
-	$(RM) vgcore.*
-	$(RM) unit_tests
-	$(RM) val
+	$(RM) $(NAME)
 	$(RM) debug
+	$(RM) tests_run
+	$(RM) *.gcda *.gcno
+	$(RM) vgcore.*
 
 fclean:	clean
-	$(RM) $(NAME)
-	$(RM) ./lib/my/*.o
-	$(RM) ./lib/my/*.a
+	$(RM) lib/my/*.a
+	$(RM) lib/my/*.o
 
 re:	fclean all
 
-.PHONY: all tests_run coverage valgrind debug clean fclean re
+.NOTPARALLEL:
+.PHONY: all debug tests_run coverage clean fclean re

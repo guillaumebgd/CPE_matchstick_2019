@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** CPE_pushswap_2019
+** CPE_matchstick_2019
 ** File description:
-** prints the usage of the push_swap program
+** prints the usage of the matchstick program
 */
 
 #include <unistd.h>

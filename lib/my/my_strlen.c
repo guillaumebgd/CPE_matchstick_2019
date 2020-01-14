@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** library
+** libmy
 ** File description:
-** my_strlen.c
+** gets the size of a string and returns -1 if null
 */
 
 #include <stddef.h>

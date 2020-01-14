@@ -2,12 +2,15 @@
 ## EPITECH PROJECT, 2019
 ## Makefile lib
 ## File description:
-## makefile for lib
+## Makefile for lib
 ##
 
-SRC	=	./my_getnbr.c	\
-		./my_strlen.c	\
-		./my_putstr.c
+SRC	=	./my_getnbr.c		\
+		./my_strlen.c		\
+		./my_putstr.c		\
+		./get_next_line.c	\
+		./my_put_nbr.c		\
+		./my_putchar.c
 
 CFLAGS	=	-Wall -Wextra -I./../../include/
 
@@ -28,4 +31,5 @@ fclean:	clean
 
 re:	fclean all
 
+.NOTPARALLEL:
 .PHONY: all clean fclean re
