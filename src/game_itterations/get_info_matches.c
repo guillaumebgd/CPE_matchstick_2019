@@ -24,12 +24,9 @@ static enum BOLEAN check_for_valid_removal(lines_t **head,
     return (TRUE);
 }
 
-static enum BOLEAN check_valid_number(lines_t **head, input_t *player_input,
-                                        const info_t conditions)
+static enum BOLEAN check_conditions(lines_t **head, input_t *player_input,
+                                    const int stock, const info_t conditions)
 {
-    int stock = 0;
-
-    stock = my_getnbr(player_input->written);
     if (stock == 0) {
         my_putstr(1, "Error: you have to remove at least one match\n");
         return (FALSE);
@@ -45,6 +42,19 @@ static enum BOLEAN check_valid_number(lines_t **head, input_t *player_input,
         return (FALSE);
     }
     return (TRUE);
+}
+
+static enum BOLEAN check_valid_number(lines_t **head, input_t *player_input,
+                                        const info_t conditions)
+{
+    int stock = 0;
+
+    if (check_mul_nbr(player_input->written) == FALSE) {
+        my_putstr(1, "Error: invalid input (positive number expected)\n");
+        return (FALSE);
+    }
+    stock = my_getnbr(player_input->written);
+    return (check_conditions(head, player_input, stock, conditions));
 }
 
 void get_info_matches(lines_t **head,

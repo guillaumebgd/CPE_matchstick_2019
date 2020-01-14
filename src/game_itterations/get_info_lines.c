@@ -9,12 +9,16 @@
 #include "my.h"
 #include <stdlib.h>
 
-static enum BOLEAN check_valid_number(input_t *player_input,
+static enum BOLEAN check_valid_number(const char *written,
                                     const info_t conditions)
 {
     int stock = 0;
 
-    stock = my_getnbr(player_input->written);
+    if (check_mul_nbr(written) == FALSE) {
+        my_putstr(1, "Error: invalid input (positive number expected)\n");
+        return (FALSE);
+    }
+    stock = my_getnbr(written);
     if (stock <= 0 || stock > conditions.nb_lines) {
         my_putstr(1, "Error: this line is out of range\n");
         return (FALSE);
@@ -26,19 +30,20 @@ void get_info_lines(input_t *player_input,
                     const info_t conditions,
                     enum BOLEAN *input)
 {
-    int i = 0;
+    int index = 0;
 
     if (!(player_input->written))
         return;
-    while (player_input->written[i]) {
-        if ((player_input->written[i] < '0' || player_input->written[i] > '9')
-            && player_input->written[i] != ' ') {
+    while (player_input->written[index]) {
+        if ((player_input->written[index] < '0'
+            || player_input->written[index] > '9')
+            && player_input->written[index] != ' ') {
             my_putstr(1, "Error: invalid input (positive number expected)\n");
             return;
         }
-        i += 1;
+        index += 1;
     }
-    if (check_valid_number(player_input, conditions) == FALSE)
+    if (check_valid_number(player_input->written, conditions) == FALSE)
         return;
     (*input) = TRUE;
 }

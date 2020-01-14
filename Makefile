@@ -13,13 +13,16 @@ SRC	=	src/error_handlers/usage.c							\
 		src/lines_linked_list/create_map.c					\
 		src/lines_linked_list/fill_basics_line.c			\
 		src/lines_linked_list/free_lines.c					\
+		src/game_itterations/check_mul_nbr.c				\
 		src/game_itterations/get_info_lines.c				\
 		src/game_itterations/get_info_matches.c				\
 		src/game_itterations/print_map.c					\
 		src/game_itterations/remove_matches_from_line.c		\
 		src/different_turns/player/player_turn.c			\
 		src/different_turns/ai/ai_turn.c					\
-		src/different_turns/ai/get_every_possible_lines.c
+		src/different_turns/ai/get_every_possible_lines.c	\
+		src/different_turns/ai/compute_move.c				\
+		src/different_turns/ai/one_line_left.c
 
 MAIN	=	main.c
 
