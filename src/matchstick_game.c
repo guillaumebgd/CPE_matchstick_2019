@@ -6,6 +6,7 @@
 */
 
 #include "matchstick.h"
+#include "my.h"
 #include <stdlib.h>
 
 static void create_first_bottom(char **first_bottom_lines,
@@ -34,6 +35,25 @@ static enum BOLEAN check_if_finished(lines_t **head)
     return (TRUE);
 }
 
+static int action_turn(enum TURN cur_turn, lines_t **head,
+                        const info_t conditions)
+{
+    if (cur_turn == PLAYER) {
+        if (player(head, conditions) == 1)
+            return (1);
+    } else
+        ai(head, conditions);
+    return (0);
+}
+
+static void print_winner(enum TURN winner)
+{
+    if (winner == PLAYER)
+        my_putstr(1, "I lost... snif... but I'll get you next time!!\n");
+    else
+        my_putstr(1, "You lost, too bad...\n");
+}
+
 enum TURN matchstick_game(lines_t **head,
                         const info_t conditions)
 {
@@ -43,9 +63,11 @@ enum TURN matchstick_game(lines_t **head,
     create_first_bottom(&first_bottom_lines, conditions.width);
     while ((check_if_finished(head) == FALSE)) {
         print_map(head, first_bottom_lines);
-        cur_turn == PLAYER ? player(head, conditions) : ai(head, conditions);
+        if (action_turn(cur_turn, head, conditions) == 1)
+            return (cur_turn);
         cur_turn = cur_turn == PLAYER ? AI : PLAYER;
     }
     print_map(head, first_bottom_lines);
+    print_winner(cur_turn);
     return (cur_turn);
 }

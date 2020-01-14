@@ -9,7 +9,7 @@
 #include "my.h"
 #include <stdlib.h>
 
-static void ask_for_turn(lines_t **head,
+static int ask_for_turn(lines_t **head,
                         input_t *player_input,
                         const info_t conditions)
 {
@@ -18,6 +18,8 @@ static void ask_for_turn(lines_t **head,
     while (input == FALSE) {
         my_putstr(1, "Line: ");
         player_input->written = get_next_line(0, 4096);
+        if (!(player_input->written))
+            return (1);
         get_info_lines(player_input, conditions, &input);
     }
     input = FALSE;
@@ -25,16 +27,18 @@ static void ask_for_turn(lines_t **head,
     free(player_input->written);
     my_putstr(1, "Matches: ");
     player_input->written = get_next_line(0, 4096);
+    if (!(player_input->written))
+            return (1);
     get_info_matches(head, player_input, conditions, &input);
     if (input == FALSE) {
-        ask_for_turn(head, player_input, conditions);
-        return;
+        return (ask_for_turn(head, player_input, conditions));
     }
     player_input->asked_matches = my_getnbr(player_input->written);
     free(player_input->written);
+    return (0);
 }
 
-void player(lines_t **head, const info_t conditions)
+int player(lines_t **head, const info_t conditions)
 {
     input_t player_input;
 
@@ -42,7 +46,8 @@ void player(lines_t **head, const info_t conditions)
     player_input.asked_lines = 0;
     player_input.asked_matches = 0;
     my_putstr(1, "\nYour turn:\n");
-    ask_for_turn(head, &player_input, conditions);
+    if (ask_for_turn(head, &player_input, conditions) == 1)
+        return (1);
     removes_matches_from_line(head, conditions, player_input.asked_lines,
                                 player_input.asked_matches);
     my_putstr(1, "Player removed ");
@@ -50,4 +55,5 @@ void player(lines_t **head, const info_t conditions)
     my_putstr(1, " match(es) from line ");
     my_put_nbr(player_input.asked_lines, "0123456789", 10);
     my_putchar('\n');
+    return (0);
 }

@@ -31,9 +31,5 @@ int init_end_game(const int nb_lines, const int max_rm)
         return (84);
     winner = matchstick_game(&lines, conditions);
     free_lines(&lines);
-    if (winner == PLAYER)
-        my_putstr(1, "I lost... snif... but I'll get you next time!!\n");
-    else
-        my_putstr(1, "You lost, too bad...\n");
     return (winner);
 }

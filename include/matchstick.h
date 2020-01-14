@@ -60,7 +60,7 @@ void invalid_input(char **, int *, int *, const info_t);
 
 enum BOLEAN check_mul_nbr(const char *);
 
-void player(lines_t **, const info_t);
+int player(lines_t **, const info_t);
 void get_info_lines(input_t *, const info_t, enum BOLEAN *);
 void get_info_matches(lines_t **, input_t *, const info_t, enum BOLEAN *);
 
