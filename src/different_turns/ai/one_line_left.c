@@ -8,6 +8,13 @@
 #include "matchstick.h"
 #include <stddef.h>
 
+static void find_best_pick(lines_t *tmp, ai_move_t *ai_choice,
+                            const info_t conditions)
+{
+    if (tmp->matches <= conditions.max_to_remove)
+        ai_choice->chosen_matches = tmp->matches - 1;
+}
+
 void one_line_left(lines_t **head, const info_t conditions,
                     ai_move_t *ai_choice)
 {
@@ -19,5 +26,5 @@ void one_line_left(lines_t **head, const info_t conditions,
     if (tmp->matches == 1)
         ai_choice->chosen_matches = 1;
     else
-        return;
+        find_best_pick(tmp, ai_choice, conditions);
 }

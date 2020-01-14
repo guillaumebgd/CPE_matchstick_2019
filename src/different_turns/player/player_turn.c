@@ -9,6 +9,18 @@
 #include "my.h"
 #include <stdlib.h>
 
+static int ask_input(input_t *player_input, const int mode)
+{
+    if (mode == 0)
+        my_putstr(1, "Line: ");
+    else
+        my_putstr(1, "Matches: ");
+    player_input->written = get_next_line(0, 4096);
+    if (!(player_input->written) || player_input->written[0] == '\0')
+        return (1);
+    return (0);
+}
+
 static int ask_for_turn(lines_t **head,
                         input_t *player_input,
                         const info_t conditions)
@@ -16,25 +28,22 @@ static int ask_for_turn(lines_t **head,
     enum BOLEAN input = FALSE;
 
     while (input == FALSE) {
-        my_putstr(1, "Line: ");
-        player_input->written = get_next_line(0, 4096);
-        if (!(player_input->written))
+        if (ask_input(player_input, 0) == 1)
             return (1);
         get_info_lines(player_input, conditions, &input);
-    }
-    input = FALSE;
-    player_input->asked_lines = my_getnbr(player_input->written);
-    free(player_input->written);
-    my_putstr(1, "Matches: ");
-    player_input->written = get_next_line(0, 4096);
-    if (!(player_input->written))
+        if (input == FALSE)
+            continue;
+        input = FALSE;
+        player_input->asked_lines = my_getnbr(player_input->written);
+        free(player_input->written);
+        if (ask_input(player_input, 1) == 1)
             return (1);
-    get_info_matches(head, player_input, conditions, &input);
-    if (input == FALSE) {
-        return (ask_for_turn(head, player_input, conditions));
+        get_info_matches(head, player_input, conditions, &input);
+        if (input == FALSE)
+            continue;
+        player_input->asked_matches = my_getnbr(player_input->written);
+        free(player_input->written);
     }
-    player_input->asked_matches = my_getnbr(player_input->written);
-    free(player_input->written);
     return (0);
 }
 

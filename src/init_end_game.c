@@ -21,9 +21,9 @@ static void init_conditions(info_t *conditions,
 
 int init_end_game(const int nb_lines, const int max_rm)
 {
+    enum TURN winner = PLAYER;
     lines_t *lines = NULL;
     info_t conditions;
-    enum TURN winner = PLAYER;
 
     srand(time(0));
     init_conditions(&conditions, nb_lines, max_rm);
