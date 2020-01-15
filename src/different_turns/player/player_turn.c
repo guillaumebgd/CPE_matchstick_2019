@@ -16,7 +16,7 @@ static int ask_input(input_t *player_input, const int mode)
     else
         my_putstr(1, "Matches: ");
     player_input->written = get_next_line(0, 4096);
-    if (!(player_input->written) || player_input->written[0] == '\0')
+    if (!(player_input->written))
         return (1);
     return (0);
 }
