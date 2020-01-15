@@ -50,7 +50,7 @@ debug:
 	$(MAKE) -C ./lib/my
 	$(CC) -g -o $@ $(SRC) $(MAIN) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
 
-tests_run: $(LDLIBTEST)
+tests_run:
 	$(MAKE) -C lib/my
 	$(CC) -o $@ $(SRC) tests/*.c $(CPPFLAGS) $(LDFLAGS) $(LDLIBTEST) --coverage
 	./$@
