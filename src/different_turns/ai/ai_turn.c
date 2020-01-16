@@ -27,8 +27,8 @@ void ai(lines_t **head, const info_t conditions)
 
     ai_choice.possible_lines = NULL;
     ai_choice.choice_size = 0;
-    ai_choice.chosen_line = 0;
-    ai_choice.chosen_matches = 0;
+    ai_choice.chosen_line = 1;
+    ai_choice.chosen_matches = 1;
     get_ai_choice(head, conditions, &ai_choice);
     my_putstr(1, "\nAI's turn...\n");
     my_putstr(1, "AI removed ");

@@ -65,6 +65,7 @@ void get_info_lines(input_t *, const info_t, enum BOLEAN *);
 void get_info_matches(lines_t **, input_t *, const info_t, enum BOLEAN *);
 
 void ai(lines_t **, const info_t);
+int get_random_int_between(int min, int max);
 void find_possible_lines(lines_t **, ai_move_t *);
 void compute_move(lines_t **, const info_t, ai_move_t *);
 void one_line_left(lines_t **, const info_t, ai_move_t *);
