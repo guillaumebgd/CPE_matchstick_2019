@@ -22,8 +22,8 @@ void one_line_left(lines_t **head, const info_t conditions,
 {
     lines_t *tmp = (*head);
 
-    ai_choice->chosen_line = ai_choice->possible_lines[0];
-    while (tmp->line_id < ai_choice->possible_lines[0])
+    ai_choice->chosen_line = ai_choice->pos_lines[0];
+    while (tmp->line_id < ai_choice->pos_lines[0])
         tmp = tmp->next;
     if (tmp->matches == 1)
         ai_choice->chosen_matches = 1;

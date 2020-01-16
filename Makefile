@@ -22,7 +22,8 @@ SRC	=	src/error_handlers/usage.c							\
 		src/different_turns/ai/ai_turn.c					\
 		src/different_turns/ai/get_every_possible_lines.c	\
 		src/different_turns/ai/compute_move.c				\
-		src/different_turns/ai/one_line_left.c
+		src/different_turns/ai/one_line_left.c				\
+		src/different_turns/ai/get_random_int_from.c
 
 MAIN	=	main.c
 

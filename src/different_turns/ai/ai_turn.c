@@ -18,14 +18,14 @@ static void get_ai_choice(lines_t **head, const info_t conditions,
     if (ai_choice->choice_size == 0)
         return;
     compute_move(head, conditions, ai_choice);
-    free(ai_choice->possible_lines);
+    free(ai_choice->pos_lines);
 }
 
 void ai(lines_t **head, const info_t conditions)
 {
     ai_move_t ai_choice;
 
-    ai_choice.possible_lines = NULL;
+    ai_choice.pos_lines = NULL;
     ai_choice.choice_size = 0;
     ai_choice.chosen_line = 1;
     ai_choice.chosen_matches = 1;

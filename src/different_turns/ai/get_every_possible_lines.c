@@ -38,8 +38,8 @@ void find_possible_lines(lines_t **head,
     }
     if (ai_choice->choice_size == 0)
         return;
-    ai_choice->possible_lines = malloc(sizeof(int) * ai_choice->choice_size);
-    if (!(ai_choice->possible_lines))
+    ai_choice->pos_lines = malloc(sizeof(int) * ai_choice->choice_size);
+    if (!(ai_choice->pos_lines))
         return;
-    fill_possible_lines(head, &ai_choice->possible_lines);
+    fill_possible_lines(head, &ai_choice->pos_lines);
 }

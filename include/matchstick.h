@@ -39,7 +39,7 @@ typedef struct input_s {
 } input_t;
 
 typedef struct ai_move_s {
-    int *possible_lines;
+    int *pos_lines;
     int choice_size;
     int chosen_line;
     int chosen_matches;
