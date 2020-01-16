@@ -21,6 +21,11 @@ static int find_line(ai_move_t *ai_choice)
     return (n);
 }
 
+static int rand_matches(int n)
+{
+    return (get_random_int_between(1, n + 1));
+}
+
 void compute_move(lines_t **head, const info_t conditions,
                     ai_move_t *ai_choice)
 {
@@ -33,7 +38,10 @@ void compute_move(lines_t **head, const info_t conditions,
     else {
         ai_choice->chosen_line = find_line(ai_choice);
         get_x_line(&tmp, ai_choice->chosen_line);
-        ai_choice->chosen_matches = get_random_int_between(1, tmp->matches + 1);
+        if (tmp->matches <= conditions.max_to_remove)
+            ai_choice->chosen_matches = rand_matches(tmp->matches);
+        else
+            ai_choice->chosen_matches = rand_matches(conditions.max_to_remove);
     }
     removes_matches_from_line(head, conditions,
                     ai_choice->chosen_line, ai_choice->chosen_matches);
