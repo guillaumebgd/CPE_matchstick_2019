@@ -17,8 +17,6 @@ static void get_ai_choice(lines_t **head, const info_t conditions,
     find_possible_lines(head, choice);
     if (!(choice->pos_lines))
         return;
-    for (int i = 0; choice->pos_lines[i] != -1; i++)
-        printf("%d\n", choice->pos_lines[i]);
     compute_move(head, conditions, choice);
     free(choice->pos_lines);
 }
