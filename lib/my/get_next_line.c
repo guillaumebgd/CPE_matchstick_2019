@@ -23,8 +23,6 @@ static char *my_strdup(char *template, const char end)
         return (NULL);
     while (++i < len_template)
         dup[i] = template[i];
-    if (i == 0)
-        return (NULL);
     dup[i] = '\0';
     return (dup);
 }

@@ -25,6 +25,9 @@ SRC	=	src/error_handlers/usage.c							\
 		src/different_turns/ai/one_line_left.c				\
 		src/different_turns/ai/get_random_int_from.c
 
+SRCTESTS	=	tests/test_create_map.c						\
+				tests/test_get_info.c
+
 MAIN	=	main.c
 
 VPATH	=	/usr/local/lib/
@@ -53,7 +56,7 @@ debug:
 
 tests_run:
 	$(MAKE) -C lib/my
-	$(CC) -o $@ $(SRC) tests/*.c $(CPPFLAGS) $(LDFLAGS) $(LDLIBTEST) --coverage
+	$(CC) -o $@ $(SRC) $(SRCTESTS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBTEST) --coverage
 	./$@
 	$(RM) $@
 

@@ -11,12 +11,15 @@
 
 static int ask_input(input_t *player_input, const int mode)
 {
+    int len_written = 0;
+
     if (mode == 0)
         my_putstr(1, "Line: ");
     else
         my_putstr(1, "Matches: ");
     player_input->written = get_next_line(0, 4096);
-    if (!(player_input->written))
+    len_written = my_strlen(player_input->written);
+    if (len_written < 0)
         return (1);
     return (0);
 }

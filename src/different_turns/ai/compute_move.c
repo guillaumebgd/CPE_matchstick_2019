@@ -21,7 +21,7 @@ static int find_line(ai_move_t *ai_choice)
     return (n);
 }
 
-static int rand_matches(int n)
+static int rand_matches(const int n)
 {
     return (get_random_int_between(1, n + 1));
 }
