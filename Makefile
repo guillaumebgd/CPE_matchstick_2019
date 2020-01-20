@@ -5,27 +5,26 @@
 ## compiles c files with libs into matchstick game
 ##
 
-SRC	=	src/error_handlers/usage.c							\
-		src/error_handlers/check_wrong_args.c				\
-		src/init_end_game.c									\
-		src/matchstick_game.c								\
-		src/get_width.c										\
-		src/lines_linked_list/create_map.c					\
-		src/lines_linked_list/fill_basics_line.c			\
-		src/lines_linked_list/free_lines.c					\
-		src/game_itterations/check_mul_nbr.c				\
-		src/game_itterations/get_info_lines.c				\
-		src/game_itterations/get_info_matches.c				\
-		src/game_itterations/print_map.c					\
-		src/game_itterations/remove_matches_from_line.c		\
-		src/different_turns/player/player_turn.c			\
-		src/different_turns/ai/ai_turn.c					\
-		src/different_turns/ai/get_every_possible_lines.c	\
-		src/different_turns/ai/compute_move.c				\
-		src/different_turns/ai/one_line_left.c				\
-		src/different_turns/ai/get_random_int_from.c
+SRC	=	src/error_handlers/usage.c								\
+		src/error_handlers/check_wrong_args.c					\
+		src/init_end_game.c										\
+		src/matchstick_game.c									\
+		src/get_width.c											\
+		src/lines_linked_list/create_map.c						\
+		src/lines_linked_list/fill_basics_line.c				\
+		src/lines_linked_list/free_lines.c						\
+		src/game_itterations/check_mul_nbr.c					\
+		src/game_itterations/get_info_lines.c					\
+		src/game_itterations/get_info_matches.c					\
+		src/game_itterations/print_map.c						\
+		src/game_itterations/remove_matches_from_line.c			\
+		src/different_turns/player_turn/player_turn.c			\
+		src/different_turns/ai_turn/ai_turn.c					\
+		src/different_turns/ai_turn/fill_possible_lines.c		\
+		src/different_turns/ai_turn/compute_move.c				\
+		src/different_turns/ai_turn/one_line_left.c
 
-SRCTESTS	=	tests/test_create_map.c						\
+SRCTESTS	=	tests/test_create_map.c							\
 				tests/test_get_info.c
 
 MAIN	=	main.c

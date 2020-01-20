@@ -10,7 +10,8 @@ SRC	=	./my_getnbr.c		\
 		./my_putstr.c		\
 		./get_next_line.c	\
 		./my_put_nbr.c		\
-		./my_putchar.c
+		./my_putchar.c		\
+		./my_rand.c
 
 CFLAGS	=	-Wall -Wextra -I./../../include/
 

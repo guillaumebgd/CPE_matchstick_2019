@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2019
 ** matchstick
 ** File description:
-** get_every_possible_lines.c
+** fills possible lines
 */
 
-#include "matchstick.h"
 #include <stdlib.h>
+#include "matchstick.h"
 
 static void fill_possible_lines(lines_t **head, int **possible_lines)
 {
@@ -26,20 +26,21 @@ static void fill_possible_lines(lines_t **head, int **possible_lines)
 }
 
 void find_possible_lines(lines_t **head,
-                        ai_move_t *ai_choice)
+                        ai_move_t *choice)
 {
     lines_t *tmp = NULL;
 
     tmp = (*head);
     while (tmp) {
         if (tmp->matches > 0)
-            ai_choice->choice_size += 1;
+            choice->size += 1;
         tmp = tmp->next;
     }
-    if (ai_choice->choice_size == 0)
+    if (choice->size == 0)
         return;
-    ai_choice->pos_lines = malloc(sizeof(int) * ai_choice->choice_size);
-    if (!(ai_choice->pos_lines))
+    choice->pos_lines = malloc(sizeof(int) * (choice->size + 1));
+    if (!(choice->pos_lines))
         return;
-    fill_possible_lines(head, &ai_choice->pos_lines);
+    choice->pos_lines[choice->size] = -1;
+    fill_possible_lines(head, &choice->pos_lines);
 }

@@ -9,12 +9,17 @@
 
 #define MATCHSTICK_H_
 
-enum TURN {
+enum turn {
     PLAYER,
     AI
 };
 
-enum BOLEAN {
+enum asked {
+    LINES,
+    MATCHES
+};
+
+enum boolean {
     TRUE,
     FALSE
 };
@@ -40,9 +45,9 @@ typedef struct input_s {
 
 typedef struct ai_move_s {
     int *pos_lines;
-    int choice_size;
-    int chosen_line;
-    int chosen_matches;
+    int size;
+    int line;
+    int matches;
 } ai_move_t;
 
 void usage(void);
@@ -53,19 +58,18 @@ int get_width(const int);
 int create_map(lines_t **, const int, const int);
 void fill_basics_line(char **, const int);
 
-enum TURN matchstick_game(lines_t **, const info_t);
+enum turn matchstick_game(lines_t **, const info_t);
 int print_map(lines_t **, const char *);
 
 void invalid_input(char **, int *, int *, const info_t);
 
-enum BOLEAN check_mul_nbr(const char *);
+enum boolean check_mul_nbr(const char *);
 
 int player(lines_t **, const info_t);
-void get_info_lines(input_t *, const info_t, enum BOLEAN *);
-void get_info_matches(lines_t **, input_t *, const info_t, enum BOLEAN *);
+void get_info_lines(input_t *, const info_t, enum boolean *);
+void get_info_matches(lines_t **, input_t *, const info_t, enum boolean *);
 
 void ai(lines_t **, const info_t);
-int get_random_int_between(int min, int max);
 void find_possible_lines(lines_t **, ai_move_t *);
 void compute_move(lines_t **, const info_t, ai_move_t *);
 void one_line_left(lines_t **, const info_t, ai_move_t *);

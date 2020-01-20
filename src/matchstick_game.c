@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2019
 ** matchstick
 ** File description:
-** matchstick_game.c
+** main control over the matchstick game
 */
 
+#include <stdlib.h>
 #include "matchstick.h"
 #include "my.h"
-#include <stdlib.h>
 
 static void create_first_bottom(char **first_bottom_lines,
                                 const int width)
@@ -23,7 +23,7 @@ static void create_first_bottom(char **first_bottom_lines,
     }
 }
 
-static enum BOLEAN check_if_finished(lines_t **head)
+static enum boolean check_if_finished(lines_t **head)
 {
     lines_t *tmp = (*head);
 
@@ -35,7 +35,7 @@ static enum BOLEAN check_if_finished(lines_t **head)
     return (TRUE);
 }
 
-static int action_turn(enum TURN cur_turn, lines_t **head,
+static int action_turn(const enum turn cur_turn, lines_t **head,
                         const info_t conditions)
 {
     if (cur_turn == PLAYER) {
@@ -46,7 +46,7 @@ static int action_turn(enum TURN cur_turn, lines_t **head,
     return (0);
 }
 
-static void print_winner(enum TURN winner)
+static void print_winner(const enum turn winner)
 {
     if (winner == PLAYER)
         my_putstr(1, "I lost... snif... but I'll get you next time!!\n");
@@ -54,14 +54,14 @@ static void print_winner(enum TURN winner)
         my_putstr(1, "You lost, too bad...\n");
 }
 
-enum TURN matchstick_game(lines_t **head,
+enum turn matchstick_game(lines_t **head,
                         const info_t conditions)
 {
     char *first_bottom_lines = NULL;
-    enum TURN cur_turn = PLAYER;
+    enum turn cur_turn = PLAYER;
 
     create_first_bottom(&first_bottom_lines, conditions.width);
-    while ((check_if_finished(head) == FALSE)) {
+    while (check_if_finished(head)) {
         print_map(head, first_bottom_lines);
         if (action_turn(cur_turn, head, conditions) == 1)
             return (cur_turn);

@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-int get_random_int_between(int min, int max)
+int my_rand(int min, int max)
 {
     return (rand() % (max - min) + min);
 }

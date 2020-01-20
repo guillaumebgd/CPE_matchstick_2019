@@ -7,9 +7,9 @@
 
 #include "matchstick.h"
 
-enum BOLEAN check_mul_nbr(const char *written)
+enum boolean check_mul_nbr(const char *written)
 {
-    enum BOLEAN check_nbr = FALSE;
+    enum boolean check_nbr = FALSE;
     int idx = 0;
 
     while (written[idx] && written[idx] == ' ')

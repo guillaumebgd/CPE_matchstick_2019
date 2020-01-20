@@ -14,6 +14,7 @@ int my_getnbr(char const *);
 int my_strlen(char const *);
 int my_putstr(const int, char const *);
 void my_put_nbr(int, char const *, const unsigned int);
+int my_rand(int min, int max);
 char *get_next_line(const int, int);
 
 #endif /* MY_H_ */

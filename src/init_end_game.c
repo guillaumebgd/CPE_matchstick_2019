@@ -2,13 +2,13 @@
 ** EPITECH PROJECT, 2019
 ** CPE_matchstick_2019
 ** File description:
-** init conditions and lines linked list then call the game
+** init conditions, and lines linked list, then calls the game
 */
 
-#include "matchstick.h"
-#include "my.h"
 #include <stdlib.h>
 #include <time.h>
+#include "my.h"
+#include "matchstick.h"
 
 static void init_conditions(info_t *conditions,
                             const int nb_lines,
@@ -21,7 +21,7 @@ static void init_conditions(info_t *conditions,
 
 int init_end_game(const int nb_lines, const int max_rm)
 {
-    enum TURN winner = PLAYER;
+    enum turn winner = PLAYER;
     lines_t *lines = NULL;
     info_t conditions;
 

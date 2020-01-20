@@ -9,7 +9,7 @@
 #include "my.h"
 #include <stdlib.h>
 
-static enum BOLEAN check_valid_number(const char *written,
+static enum boolean check_valid_number(const char *written,
                                     const info_t conditions)
 {
     int stock = 0;
@@ -28,7 +28,7 @@ static enum BOLEAN check_valid_number(const char *written,
 
 void get_info_lines(input_t *player_input,
                     const info_t conditions,
-                    enum BOLEAN *input)
+                    enum boolean *input)
 {
     int index = 0;
 

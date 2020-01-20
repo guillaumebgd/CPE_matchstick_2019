@@ -13,7 +13,7 @@ Test(get_info_lines, simple_lines_info)
 {
     input_t player_input;
     info_t conditions;
-    enum BOLEAN input = FALSE;
+    enum boolean input = FALSE;
 
     player_input.asked_lines = 0;
     player_input.asked_matches = 0;
@@ -32,7 +32,7 @@ Test(get_info_matches, simple_matches_info)
 {
     input_t player_input;
     info_t conditions;
-    enum BOLEAN input = FALSE;
+    enum boolean input = FALSE;
 
     player_input.asked_lines = 13;
     player_input.asked_matches = 0;

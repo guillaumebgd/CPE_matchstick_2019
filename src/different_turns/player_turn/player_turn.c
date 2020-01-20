@@ -28,7 +28,7 @@ static int ask_for_turn(lines_t **head,
                         input_t *player_input,
                         const info_t conditions)
 {
-    enum BOLEAN input = FALSE;
+    enum boolean input = FALSE;
 
     while (input == FALSE) {
         if (ask_input(player_input, 0) == 1)

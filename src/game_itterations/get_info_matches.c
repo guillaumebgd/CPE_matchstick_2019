@@ -9,7 +9,7 @@
 #include "my.h"
 #include <stdlib.h>
 
-static enum BOLEAN check_for_valid_removal(lines_t **head,
+static enum boolean check_for_valid_removal(lines_t **head,
                                             input_t *player_input,
                                             int stock)
 {
@@ -24,7 +24,7 @@ static enum BOLEAN check_for_valid_removal(lines_t **head,
     return (TRUE);
 }
 
-static enum BOLEAN check_conditions(lines_t **head, input_t *player_input,
+static enum boolean check_conditions(lines_t **head, input_t *player_input,
                                     const int stock, const info_t conditions)
 {
     if (stock == 0) {
@@ -44,7 +44,7 @@ static enum BOLEAN check_conditions(lines_t **head, input_t *player_input,
     return (TRUE);
 }
 
-static enum BOLEAN check_valid_number(lines_t **head, input_t *player_input,
+static enum boolean check_valid_number(lines_t **head, input_t *player_input,
                                         const info_t conditions)
 {
     int stock = 0;
@@ -60,7 +60,7 @@ static enum BOLEAN check_valid_number(lines_t **head, input_t *player_input,
 void get_info_matches(lines_t **head,
                     input_t *player_input,
                     const info_t conditions,
-                    enum BOLEAN *input)
+                    enum boolean *input)
 {
     int i = 0;
 
