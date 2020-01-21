@@ -1,27 +1,28 @@
 /*
-** EPITECH PROJECT, 2019
-** CPE_matchstick_2019
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
-** check_mul_nbr.c
+** checks if a given string contains two different numbers
 */
 
 #include "matchstick.h"
+#include "my.h"
 
-enum boolean check_mul_nbr(const char *written)
+boolean_t check_mul_nbr(const char *written)
 {
-    enum boolean check_nbr = FALSE;
-    int idx = 0;
+    boolean_t check_nbr = FALSE;
+    int index = 0;
 
-    while (written[idx] && written[idx] == ' ')
-        idx += 1;
-    while (written[idx] && written[idx] >= '0' && written[idx] <= '9') {
+    while (written[index] && written[index] == ' ')
+        index += 1;
+    while (written[index] && my_isnum(written[index])) {
         check_nbr = TRUE;
-        idx += 1;
+        index += 1;
     }
-    while (written[idx]) {
-        if (written[idx] != ' ')
+    while (written[index]) {
+        if (written[index] != ' ')
             return (FALSE);
-        idx += 1;
+        index += 1;
     }
     return (check_nbr);
 }

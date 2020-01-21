@@ -1,30 +1,33 @@
 ##
-## EPITECH PROJECT, 2019
+## EPITECH PROJECT, 2020
 ## Makefile matchstick
 ## File description:
-## compiles c files with libs into matchstick game
+## compiles c files with libs into the matchstick game
 ##
 
-SRC	=	src/error_handlers/usage.c								\
-		src/error_handlers/check_wrong_args.c					\
-		src/init_end_game.c										\
-		src/matchstick_game.c									\
-		src/get_width.c											\
-		src/lines_linked_list/create_map.c						\
-		src/lines_linked_list/fill_basics_line.c				\
-		src/lines_linked_list/free_lines.c						\
-		src/game_itterations/check_mul_nbr.c					\
-		src/game_itterations/get_info_lines.c					\
-		src/game_itterations/get_info_matches.c					\
-		src/game_itterations/print_map.c						\
-		src/game_itterations/remove_matches_from_line.c			\
-		src/different_turns/player_turn/player_turn.c			\
-		src/different_turns/ai_turn/ai_turn.c					\
-		src/different_turns/ai_turn/fill_possible_lines.c		\
-		src/different_turns/ai_turn/compute_move.c				\
-		src/different_turns/ai_turn/one_line_left.c
+SRC	=	src/error_handling/usage.c						\
+		src/error_handling/check_wrong_args.c			\
+		src/game_management/init_end_game.c				\
+		src/game_management/matchstick_game.c			\
+		src/game_management/get_width.c					\
+		src/map_list/create_map.c						\
+		src/map_list/setup_map.c						\
+		src/map_list/free_lines.c						\
+		src/game_itterations/get_info_lines.c			\
+		src/game_itterations/get_info_matches.c			\
+		src/game_itterations/check_mul_nbr.c			\
+		src/game_itterations/print_info.c				\
+		src/game_itterations/remove_matches_from_line.c	\
+		src/turns_actions/player_turn.c					\
+		src/turns_actions/ai_turn.c						\
+		src/turns_actions/get_x_line.c					\
+		src/turns_actions/fill_possible_lines.c			\
+		src/turns_actions/compute_move.c				\
+		src/turns_actions/one_line_left.c				\
+		src/turns_actions/two_lines_left.c				\
+		src/turns_actions/random_move.c
 
-SRCTESTS	=	tests/test_create_map.c							\
+SRCTESTS	=	tests/test_create_map.c					\
 				tests/test_get_info.c
 
 MAIN	=	main.c

@@ -1,13 +1,12 @@
 /*
-** EPITECH PROJECT, 2019
-** CPE_getnextline_2019
+** EPITECH PROJECT, 2020
+** CPE_getnextline_2020
 ** File description:
 ** gets the next line of a file
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <fcntl.h>
 
 static char *my_strdup(char *template, const char end)
 {
@@ -51,7 +50,7 @@ static char *my_strcat(char *first, char *second)
     return (result);
 }
 
-static char *get_line(const int fd, char **res, int *i, int nb_bytes)
+static char *get_line(const int fd, char **res, int *i, const int nb_bytes)
 {
     static char *tmp = NULL;
     static int size = 0;
@@ -94,7 +93,7 @@ static int check_stock_saved_line(char **res, char **line,
     return (0);
 }
 
-char *get_next_line(const int fd, int nb_bytes)
+char *get_next_line(const int fd, const int nb_bytes)
 {
     static char *stock = NULL;
     char *line = NULL;

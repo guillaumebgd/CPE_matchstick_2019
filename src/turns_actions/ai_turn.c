@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2019
-** matchstick
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
 ** computes the ai's turn options
 */
@@ -10,7 +10,7 @@
 #include "my.h"
 
 static void get_ai_choice(lines_t **head, const info_t conditions,
-                        ai_move_t *choice)
+                            ai_move_t *choice)
 {
     if (!(*head))
         return;
@@ -32,8 +32,8 @@ void ai(lines_t **head, const info_t conditions)
     get_ai_choice(head, conditions, &choice);
     my_putstr(1, "\nAI's turn...\n");
     my_putstr(1, "AI removed ");
-    my_put_nbr(choice.matches, "0123456789", 10);
+    my_put_nbr(choice.matches, "0123456789");
     my_putstr(1, " match(es) from line ");
-    my_put_nbr(choice.line, "0123456789", 10);
+    my_put_nbr(choice.line, "0123456789");
     my_putchar('\n');
 }

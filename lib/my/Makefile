@@ -11,7 +11,8 @@ SRC	=	./my_getnbr.c		\
 		./get_next_line.c	\
 		./my_put_nbr.c		\
 		./my_putchar.c		\
-		./my_rand.c
+		./my_rand.c			\
+		./my_isnum.c
 
 CFLAGS	=	-Wall -Wextra -I./../../include/
 

@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2019
-** matchstick
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
 ** fills possible lines
 */
@@ -10,31 +10,28 @@
 
 static void fill_possible_lines(lines_t **head, int **possible_lines)
 {
-    lines_t *tmp = (*head);
+    lines_t *tmp = NULL;
     int index = 0;
 
-    if (!tmp)
+    if (!(*head))
         return;
-    tmp = (*head);
-    while (tmp) {
+    for (tmp = (*head); tmp; tmp = tmp->next) {
         if (tmp->matches > 0) {
             (*possible_lines)[index] = tmp->line_id;
             index += 1;
         }
-        tmp = tmp->next;
     }
 }
 
-void find_possible_lines(lines_t **head,
-                        ai_move_t *choice)
+void find_possible_lines(lines_t **head, ai_move_t *choice)
 {
     lines_t *tmp = NULL;
 
-    tmp = (*head);
-    while (tmp) {
+    if (!(*head))
+        return;
+    for (tmp = (*head); tmp; tmp = tmp->next) {
         if (tmp->matches > 0)
             choice->size += 1;
-        tmp = tmp->next;
     }
     if (choice->size == 0)
         return;

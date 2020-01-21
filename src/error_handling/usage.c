@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2019
-** CPE_matchstick_2019
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
 ** prints the usage of the matchstick program
 */

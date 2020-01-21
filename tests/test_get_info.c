@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** CPE_matchstick_2019
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
-** test_get_info.c
+** tests the get_info functions
 */
 
 #include "matchstick.h"
@@ -13,7 +13,7 @@ Test(get_info_lines, simple_lines_info)
 {
     input_t player_input;
     info_t conditions;
-    enum boolean input = FALSE;
+    boolean_t input = FALSE;
 
     player_input.asked_lines = 0;
     player_input.asked_matches = 0;
@@ -22,7 +22,7 @@ Test(get_info_lines, simple_lines_info)
     conditions.nb_lines = 10;
     conditions.width = 19;
     get_info_lines(&player_input, conditions, &input);
-    if (input == TRUE)
+    if (input)
         cr_assert_eq(1, 1);
     else
         cr_assert_eq(1, 2);
@@ -32,7 +32,7 @@ Test(get_info_matches, simple_matches_info)
 {
     input_t player_input;
     info_t conditions;
-    enum boolean input = FALSE;
+    boolean_t input = FALSE;
 
     player_input.asked_lines = 13;
     player_input.asked_matches = 0;
@@ -41,7 +41,7 @@ Test(get_info_matches, simple_matches_info)
     conditions.nb_lines = 13;
     conditions.width = 25;
     get_info_lines(&player_input, conditions, &input);
-    if (input == FALSE)
+    if (!input)
         cr_assert_eq(1, 1);
     else
         cr_assert_eq(1, 2);

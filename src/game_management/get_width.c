@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** matchstick
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
-** get_width.c
+** gets the width of a matchstick map
 */
 
 int get_width(const int lines)

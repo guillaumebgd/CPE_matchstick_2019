@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** CPE_matchstick_2019
+** EPITECH PROJECT, 2020
+** CPE_matchstick_2020
 ** File description:
-** test_create_map.c
+** tests the create map function
 */
 
 #include "matchstick.h"
