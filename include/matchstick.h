@@ -115,8 +115,8 @@ boolean_t print_winner(const turn_t winner);
 //get_info_matches: gets the matches input from the player.
 
 boolean_t player(lines_t **head, const info_t conditions);
-void get_info_lines(input_t *player_input, const info_t conditions,
-                        boolean_t *input);
+void get_info_lines(const info_t conditions, boolean_t *input,
+                        const char *written);
 void get_info_matches(lines_t **head, const info_t conditions,
                         input_t *player_input, boolean_t *input);
 

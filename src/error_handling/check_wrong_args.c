@@ -22,7 +22,7 @@ boolean_t check_wrong_args(const char *lines, const char *max_remove)
     int lines_nb = my_getnbr(lines);
     int nb_max_remove = my_getnbr(max_remove);
 
-    if (check_wrong_size(len_lines, 0, 3))
+    if (!(check_wrong_size(len_lines, 0, 3)))
         return (FALSE);
     if (lines_nb <= 1 || lines_nb >= 100 || nb_max_remove <= 0)
         return (FALSE);

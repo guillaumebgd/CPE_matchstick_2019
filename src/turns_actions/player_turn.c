@@ -9,16 +9,16 @@
 #include "matchstick.h"
 #include "my.h"
 
-static boolean_t ask_input(input_t *player_input, const int mode)
+static boolean_t ask_input(char **written, const int mode)
 {
     int len_written = 0;
 
-    if (mode == 0)
+    if (!mode)
         my_putstr(1, "Line: ");
     else
         my_putstr(1, "Matches: ");
-    player_input->written = get_next_line(0, 4096);
-    len_written = my_strlen(player_input->written);
+    *written = get_next_line(0, 4096);
+    len_written = my_strlen(*written);
     if (len_written < 0)
         return (FALSE);
     return (TRUE);
@@ -30,15 +30,15 @@ static boolean_t ask_for_turn(lines_t **head, input_t *player_input,
     boolean_t input = FALSE;
 
     while (!input) {
-        if (!(ask_input(player_input, 0)))
+        if (!(ask_input(&player_input->written, 0)))
             return (FALSE);
-        get_info_lines(player_input, conditions, &input);
+        get_info_lines(conditions, &input, player_input->written);
         if (!input)
             continue;
         input = FALSE;
         player_input->asked_lines = my_getnbr(player_input->written);
         free(player_input->written);
-        if (!(ask_input(player_input, 1)))
+        if (!(ask_input(&player_input->written, 1)))
             return (FALSE);
         get_info_matches(head, conditions, player_input, &input);
         if (!input)

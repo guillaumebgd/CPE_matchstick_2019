@@ -26,22 +26,21 @@ static boolean_t check_valid_number(const char *written,
     return (TRUE);
 }
 
-void get_info_lines(input_t *player_input, const info_t conditions,
-                        boolean_t *input)
+void get_info_lines(const info_t conditions, boolean_t *input,
+                        const char *written)
 {
     int index = 0;
 
-    if (!(player_input->written))
+    if (!written)
         return;
-    while (player_input->written[index]) {
-        if (!(my_isnum(player_input->written[index]))
-            && player_input->written[index] != ' ') {
+    while (written[index]) {
+        if (!(my_isnum(written[index])) && written[index] != ' ') {
             my_putstr(1, "Error: invalid input (positive number expected)\n");
             return;
         }
         index += 1;
     }
-    if (!(check_valid_number(player_input->written, conditions.nb_lines)))
+    if (!(check_valid_number(written, conditions.nb_lines)))
         return;
     (*input) = TRUE;
 }

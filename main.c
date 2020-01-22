@@ -8,12 +8,13 @@
 #include "matchstick.h"
 #include "my.h"
 
-int main(int ac, char **av)
+int main(const int ac, const char * const *av)
 {
     if (ac != 3) {
         usage();
         return (84);
-    } else if (check_wrong_args(av[1], av[2]) == 1) {
+    }
+    if (!(check_wrong_args(av[1], av[2]))) {
         usage();
         return (84);
     }
