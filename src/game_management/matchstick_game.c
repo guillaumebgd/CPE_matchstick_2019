@@ -57,7 +57,7 @@ int matchstick_game(lines_t **head, const info_t conditions)
         if (!(print_map(head, first_bottom_lines)))
             return (84);
         if (!(action_turn(cur_turn, head, conditions)))
-            return (cur_turn);
+            return (0);
         cur_turn = cur_turn == PLAYER ? AI : PLAYER;
     }
     if (!(print_map(head, first_bottom_lines)))

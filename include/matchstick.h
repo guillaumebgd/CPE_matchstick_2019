@@ -11,8 +11,8 @@
 
 //helps keeping track of who is playing
 typedef enum turn_e {
-    PLAYER,
-    AI
+    PLAYER = 1,
+    AI = 2,
 } turn_t;
 
 //a boolean enum, FALSE = 0, TRUE = 1
