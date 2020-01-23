@@ -16,6 +16,8 @@ int my_strlen(const char *str);
 //returns 84 if write error
 int my_putstr(const int fd, char const *str);
 
+int my_strcmp(const char *first, const char *second);
+
 //returns 0 if error
 int my_getnbr(const char *str);
 //doesn't write if error

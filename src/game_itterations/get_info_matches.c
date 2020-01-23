@@ -62,6 +62,10 @@ void get_info_matches(lines_t **head, const info_t conditions,
 
     if (!(player_input->written))
         return;
+    if (my_strcmp("2147483647", player_input->written) < 0) {
+        my_putstr(1, "Error: not enough matches on this line\n");
+        return;
+    }
     while (player_input->written[index]) {
         if (!(my_isnum(player_input->written[index]))
             && player_input->written[index] != ' ') {
