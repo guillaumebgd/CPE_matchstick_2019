@@ -7,8 +7,7 @@
 
 #include "matchstick.h"
 
-static int one_and_one(ai_move_t *choice,
-                        const int matches_up,
+static int one_and_one(ai_move_t *choice, const int matches_up,
                         const int matches_down)
 {
     if (matches_up == 1 && matches_down == 1) {

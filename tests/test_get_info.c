@@ -21,7 +21,7 @@ Test(get_info_lines, simple_lines_info)
     conditions.max_to_remove = 4;
     conditions.nb_lines = 10;
     conditions.width = 19;
-    get_info_lines(&player_input, conditions, &input);
+    get_info_lines(conditions, &input, player_input.written);
     if (input)
         cr_assert_eq(1, 1);
     else
@@ -40,7 +40,7 @@ Test(get_info_matches, simple_matches_info)
     conditions.max_to_remove = 4;
     conditions.nb_lines = 13;
     conditions.width = 25;
-    get_info_lines(&player_input, conditions, &input);
+    get_info_lines(conditions, &input, player_input.written);
     if (!input)
         cr_assert_eq(1, 1);
     else

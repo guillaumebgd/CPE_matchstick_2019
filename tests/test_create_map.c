@@ -5,9 +5,9 @@
 ** tests the create map function
 */
 
-#include "matchstick.h"
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
+#include "matchstick.h"
 
 
 static void create_first_bottom(char **first_bottom_lines,

@@ -1,6 +1,6 @@
 /*
-** EPITECH PROJECT, 2020
-** CPE_getnextline_2020
+** EPITECH PROJECT, 2019
+** CPE_getnextline_2019
 ** File description:
 ** gets the next line of a file
 */
@@ -79,7 +79,7 @@ static int check_stock_saved_line(char **res, char **line,
 {
     int index = 0;
 
-    if (!(*stock))
+    if (!(*stock) || (*stock)[0] == '\0')
         return (0);
     (*res) = my_strdup((*stock), '\0');
     while ((*stock)[index] && (*stock)[index] != '\n')
