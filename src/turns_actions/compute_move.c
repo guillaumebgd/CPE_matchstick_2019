@@ -14,8 +14,6 @@ void compute_move(lines_t **head, const info_t conditions, ai_move_t *choice)
         return;
     if (choice->size == 1)
         one_line_left(head, conditions, choice);
-    else if (choice->size == 2)
-        two_lines_left(head, conditions, choice);
     else
         random_input(head, conditions, choice);
     rm_matches_from_line(head, conditions, choice->line, choice->matches);
