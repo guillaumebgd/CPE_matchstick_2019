@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** CPE_matchstick_2020
 ** File description:
-** actions done by the program when player if playing
+** actions done by the program when player is playing
 */
 
 #include <stdlib.h>

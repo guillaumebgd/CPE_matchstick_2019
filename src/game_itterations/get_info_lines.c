@@ -14,10 +14,6 @@ static boolean_t check_valid_number(const char *written,
 {
     int stock = 0;
 
-    if (!(check_mul_nbr(written))) {
-        my_putstr(1, "Error: invalid input (positive number expected)\n");
-        return (FALSE);
-    }
     stock = my_getnbr(written);
     if (stock == 0) {
         my_putstr(1, "Error: invalid input (positive number expected)\n");
@@ -38,7 +34,7 @@ void get_info_lines(const info_t conditions, boolean_t *input,
     if (!written)
         return;
     while (written[index]) {
-        if (!(my_isnum(written[index])) && written[index] != ' ') {
+        if (!(my_isnum(written[index]))) {
             my_putstr(1, "Error: invalid input (positive number expected)\n");
             return;
         }

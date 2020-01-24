@@ -149,6 +149,5 @@ void random_input(lines_t **head, const info_t conditions, ai_move_t *choice);
 
 void rm_matches_from_line(lines_t **head, const info_t conditions,
                         const int chosen_line, const int to_remove);
-boolean_t check_mul_nbr(const char *written);
 
 #endif /* MATCHSTICK_H_ */

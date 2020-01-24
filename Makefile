@@ -15,7 +15,6 @@ SRC	=	src/error_handling/usage.c						\
 		src/map_list/free_lines.c						\
 		src/game_itterations/get_info_lines.c			\
 		src/game_itterations/get_info_matches.c			\
-		src/game_itterations/check_mul_nbr.c			\
 		src/game_itterations/print_info.c				\
 		src/game_itterations/remove_matches_from_line.c	\
 		src/turns_actions/player_turn.c					\

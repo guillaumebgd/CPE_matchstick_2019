@@ -47,10 +47,6 @@ static boolean_t check_valid_number(lines_t **head, input_t *player_input,
 {
     int stock = 0;
 
-    if (!(check_mul_nbr(player_input->written))) {
-        my_putstr(1, "Error: invalid input (positive number expected)\n");
-        return (FALSE);
-    }
     stock = my_getnbr(player_input->written);
     return (check_conditions(head, player_input, stock, max_rm));
 }
@@ -67,8 +63,7 @@ void get_info_matches(lines_t **head, const info_t conditions,
         return;
     }
     while (player_input->written[index]) {
-        if (!(my_isnum(player_input->written[index]))
-            && player_input->written[index] != ' ') {
+        if (!(my_isnum(player_input->written[index]))) {
             my_putstr(1, "Error: invalid input (positive number expected)\n");
             return;
         }
