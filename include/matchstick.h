@@ -134,6 +134,7 @@ void compute_move(lines_t **head, const info_t conditions, ai_move_t *choice);
 void one_line_left(lines_t **head, const info_t conditions, ai_move_t *choice);
 void two_lines_left(lines_t **head, const info_t conditions,
                     ai_move_t *choice);
+void one_at_one(lines_t **head, const int max_to_rm, ai_move_t *choice);
 void random_input(lines_t **head, const info_t conditions, ai_move_t *choice);
 
 

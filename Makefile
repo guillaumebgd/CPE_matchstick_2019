@@ -5,28 +5,29 @@
 ## compiles c files with libs into the matchstick game
 ##
 
-SRC	=	src/error_handling/usage.c						\
-		src/error_handling/check_wrong_args.c			\
-		src/game_management/init_end_game.c				\
-		src/game_management/matchstick_game.c			\
-		src/game_management/get_width.c					\
-		src/map_list/create_map.c						\
-		src/map_list/setup_map.c						\
-		src/map_list/free_lines.c						\
-		src/game_itterations/get_info_lines.c			\
-		src/game_itterations/get_info_matches.c			\
-		src/game_itterations/print_info.c				\
-		src/game_itterations/remove_matches_from_line.c	\
-		src/turns_actions/player_turn.c					\
-		src/turns_actions/ai_turn.c						\
-		src/turns_actions/get_x_line.c					\
-		src/turns_actions/fill_possible_lines.c			\
-		src/turns_actions/compute_move.c				\
-		src/turns_actions/one_line_left.c				\
-		src/turns_actions/two_lines_left.c				\
+SRC	=	src/error_handling/usage.c									\
+		src/error_handling/check_wrong_args.c						\
+		src/game_management/init_end_game.c							\
+		src/game_management/matchstick_game.c						\
+		src/game_management/get_width.c								\
+		src/map_list/create_map.c									\
+		src/map_list/setup_map.c									\
+		src/map_list/free_lines.c									\
+		src/game_itterations/get_info_lines.c						\
+		src/game_itterations/get_info_matches.c						\
+		src/game_itterations/print_info.c							\
+		src/game_itterations/remove_matches_from_line.c				\
+		src/turns_actions/player_turn.c								\
+		src/turns_actions/ai_turn.c									\
+		src/turns_actions/get_x_line.c								\
+		src/turns_actions/fill_possible_lines.c						\
+		src/turns_actions/compute_move.c							\
+		src/turns_actions/special_ai_choices/one_line_left.c		\
+		src/turns_actions/special_ai_choices/two_lines_left.c		\
+		src/turns_actions/special_ai_choices/two_lines_one_at_one.c	\
 		src/turns_actions/random_move.c
 
-SRCTESTS	=	tests/test_create_map.c					\
+SRCTESTS	=	tests/test_create_map.c								\
 				tests/test_get_info.c
 
 MAIN	=	main.c

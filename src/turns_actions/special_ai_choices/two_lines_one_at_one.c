@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** CPE_matchstick_2020
 ** File description:
-** algorithm exploited by the ai when two lines are left in the game
+** special case when 2 lines are left and at least one of them as only 1 match
 */
 
 #include "matchstick.h"
@@ -32,8 +32,7 @@ static void remove_one_line(ai_move_t *choice, const int matches_up,
     }
 }
 
-static void one_at_one(lines_t **head, const int max_to_rm,
-                        ai_move_t *choice)
+void one_at_one(lines_t **head, const int max_to_rm, ai_move_t *choice)
 {
     int matches_up = get_x_line(head, choice->pos_lines[0])->matches;
     int matches_down = get_x_line(head, choice->pos_lines[1])->matches;
@@ -50,15 +49,4 @@ static void one_at_one(lines_t **head, const int max_to_rm,
         choice->line = choice->pos_lines[0];
     else
         choice->line = choice->pos_lines[1];
-}
-
-void two_lines_left(lines_t **head, const info_t conditions, ai_move_t *choice)
-{
-    int matches_up = get_x_line(head, choice->pos_lines[0])->matches;
-    int matches_down = get_x_line(head, choice->pos_lines[1])->matches;
-
-    if (matches_up == 1 || matches_down == 1) {
-        one_at_one(head, conditions.max_to_remove, choice);
-        return;
-    }
 }
