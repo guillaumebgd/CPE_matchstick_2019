@@ -30,7 +30,8 @@ SRC	=	src/error_handling/usage.c									\
 SRCTESTS	=	tests/test_create_map.c								\
 				tests/test_get_info.c								\
 				tests/test_get_x_line.c								\
-				tests/test_random_input.c
+				tests/test_random_input.c							\
+				tests/test_check_wrong_args.c
 
 MAIN	=	main.c
 
