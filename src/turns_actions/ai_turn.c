@@ -23,7 +23,7 @@ static void get_ai_choice(lines_t **head, const info_t conditions,
 
 void ai(lines_t **head, const info_t conditions)
 {
-    ai_move_t choice;
+    static ai_move_t choice;
 
     choice.pos_lines = NULL;
     choice.size = 0;

@@ -32,7 +32,8 @@ SRCTESTS	=	tests/test_create_map.c								\
 				tests/test_get_x_line.c								\
 				tests/test_random_input.c							\
 				tests/test_check_wrong_args.c						\
-				tests/test_usage.c
+				tests/test_usage.c									\
+				tests/test_find_possible_lines.c
 
 MAIN	=	main.c
 
