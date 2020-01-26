@@ -47,6 +47,7 @@ typedef struct ai_move_s {
     int matches;
 } ai_move_t;
 
+
 //                          ******************
 //                          | Error handling |
 //                          ******************
@@ -125,16 +126,18 @@ void get_info_matches(lines_t **head, const info_t conditions,
 //                         | AI's turn |
 //                         *************
 //
-//
 
 void ai(lines_t **head, const info_t conditions);
 void find_possible_lines(lines_t **head, ai_move_t *choice);
 lines_t *get_x_line(lines_t **head, const int line_nb);
 void compute_move(lines_t **head, const info_t conditions, ai_move_t *choice);
+
 void one_line_left(lines_t **head, const info_t conditions, ai_move_t *choice);
+
 void two_lines_left(lines_t **head, const info_t conditions,
                     ai_move_t *choice);
 void one_at_one(lines_t **head, const int max_to_rm, ai_move_t *choice);
+
 void random_input(lines_t **head, const info_t conditions, ai_move_t *choice);
 
 
@@ -144,9 +147,6 @@ void random_input(lines_t **head, const info_t conditions, ai_move_t *choice);
 //
 //rm_matches_from_line: removes a chosen nb of matches on a chosen line.
 //                      (Errors aren't checked here).
-//check_mul_nbr:        checks if the given input contains several numbers.
-//                      -> Returns FALSE if it contains several, otherwise,
-//                      returns TRUE.
 
 void rm_matches_from_line(lines_t **head, const info_t conditions,
                         const int chosen_line, const int to_remove);
